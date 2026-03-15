@@ -1,3 +1,40 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "gallery-1",
+      "description": "Our first chaos together",
+      "imageUrl": "https://picsum.photos/seed/101/600/800",
+      "imageHint": "couple selfie"
+    },
+    {
+      "id": "gallery-2",
+      "description": "Proof we look good together",
+      "imageUrl": "https://picsum.photos/seed/102/800/600",
+      "imageHint": "couple portrait"
+    },
+    {
+      "id": "gallery-3",
+      "description": "The day you stole my heart",
+      "imageUrl": "https://picsum.photos/seed/103/600/600",
+      "imageHint": "romantic moment"
+    },
+    {
+      "id": "gallery-4",
+      "description": "Adventures with you",
+      "imageUrl": "https://picsum.photos/seed/104/600/900",
+      "imageHint": "couple travel"
+    },
+    {
+      "id": "gallery-5",
+      "description": "Silly moments",
+      "imageUrl": "https://picsum.photos/seed/105/700/700",
+      "imageHint": "couple laughing"
+    },
+    {
+      "id": "gallery-6",
+      "description": "My favorite view",
+      "imageUrl": "https://picsum.photos/seed/106/800/500",
+      "imageHint": "couple nature"
+    }
+  ]
 }
