@@ -11,7 +11,7 @@ const FinalSurpriseSection = ({ onOpenSurprise }: FinalSurpriseSectionProps) => 
       <div className="container mx-auto text-center space-y-6">
         <h2 className="font-headline text-4xl md:text-5xl text-foreground">One Last Thing...</h2>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Are you ready for your real present?</p>
-        <Button size="lg" onClick={onOpenSurprise} className="shadow-lg animate-pulse">
+        <Button size="lg" onClick={onOpenSurprise} className="shadow-lg animate-pulse transition-transform hover:scale-105">
             <Sparkles className="mr-2 h-5 w-5" />
             Click For The Final Surprise
         </Button>

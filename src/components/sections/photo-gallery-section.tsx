@@ -25,7 +25,7 @@ const PhotoGallerySection = () => {
         {PlaceHolderImages.map((image) => (
           <div
             key={image.id}
-            className="group relative overflow-hidden rounded-lg cursor-pointer shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
+            className="group relative overflow-hidden rounded-lg cursor-pointer shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/30"
             onClick={() => setSelectedImage(image)}
           >
             <Image

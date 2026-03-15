@@ -37,11 +37,11 @@ const JourneyMapSection = () => {
                 </svg>
                 
                 <TooltipProvider delayDuration={0}>
-                    {locations.map((loc) => (
+                    {locations.map((loc, index) => (
                     <Tooltip key={loc.name}>
                         <TooltipTrigger asChild>
                             <button className="absolute transform -translate-x-1/2 -translate-y-1/2" style={loc.position}>
-                                <MapPin className="w-8 h-8 text-primary drop-shadow-lg transition-transform hover:scale-125" />
+                                <MapPin className="w-8 h-8 text-primary drop-shadow-lg transition-transform hover:scale-125 animate-pulse-dot" style={{ animationDelay: `${index * 0.3}s` }} />
                             </button>
                         </TooltipTrigger>
                         <TooltipContent>

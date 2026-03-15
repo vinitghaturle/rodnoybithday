@@ -26,7 +26,7 @@ const HeroSection = ({ onStart }: HeroSectionProps) => {
         <p className="text-lg md:text-xl max-w-2xl mx-auto text-muted-foreground">
           You officially survived 19 years… and somehow still chose me.
         </p>
-        <Button size="lg" onClick={handleStartClick} className="shadow-lg">
+        <Button size="lg" onClick={handleStartClick} className="shadow-lg transition-transform hover:scale-105">
           Open Your Surprise 🎁
           <ArrowDown className="ml-2 h-5 w-5 animate-bounce" />
         </Button>

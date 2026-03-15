@@ -29,11 +29,12 @@ const WishlistSection = () => {
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
           {wishes.map((wish) => (
-            <Card key={wish.title} className="text-center p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 bg-card">
+            <Card key={wish.title} className="group relative overflow-hidden text-center p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 bg-card">
               <CardContent className="flex flex-col items-center justify-center gap-4 p-0">
                 {wish.icon}
                 <p className="font-semibold text-lg text-foreground">{wish.title}</p>
               </CardContent>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out" />
             </Card>
           ))}
         </div>
