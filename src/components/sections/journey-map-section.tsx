@@ -22,7 +22,7 @@ const locations = [
 
 const JourneyMapSection = () => {
   return (
-    <section id="journey-map" className="bg-card">
+    <section id="journey-map">
       <div className="container mx-auto text-center">
         <h2 className="font-headline text-4xl md:text-5xl text-foreground">Our Special Places</h2>
         <p className="text-lg text-muted-foreground mt-2 max-w-2xl mx-auto">A map of our story, one memory at a time.</p>

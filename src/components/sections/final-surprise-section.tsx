@@ -7,7 +7,7 @@ type FinalSurpriseSectionProps = {
 
 const FinalSurpriseSection = ({ onOpenSurprise }: FinalSurpriseSectionProps) => {
   return (
-    <section id="final-surprise" className="bg-card">
+    <section id="final-surprise">
       <div className="container mx-auto text-center space-y-6">
         <h2 className="font-headline text-4xl md:text-5xl text-foreground">One Last Thing...</h2>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Are you ready for your real present?</p>

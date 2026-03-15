@@ -6,7 +6,7 @@ You make every day brighter, every joke funnier, and every moment better.
 Even when you're annoying… you're still my favorite person.`;
 
   return (
-    <section id="love-message" className="bg-card">
+    <section id="love-message">
       <div className="container mx-auto max-w-3xl text-center">
         <AnimatedText
           text={message}

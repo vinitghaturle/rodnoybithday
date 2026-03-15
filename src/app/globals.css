@@ -59,8 +59,16 @@
   }
   body {
     @apply text-foreground;
-    background-color: hsl(var(--background));
-    background-image: radial-gradient(ellipse 80% 80% at 50% -20%, hsl(var(--card)), hsl(var(--background)));
+    background-color: hsl(var(--background)); /* Fallback */
+    background-image: linear-gradient(
+      -45deg,
+      hsl(var(--background)),
+      hsl(var(--secondary)),
+      hsl(var(--primary) / 0.2),
+      hsl(var(--accent) / 0.2)
+    );
+    background-size: 400% 400%;
+    animation: animated-gradient 15s ease infinite;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
