@@ -4,75 +4,111 @@
 
 @layer base {
   :root {
-    --background: 213 47% 95%; /* #ECF2F7 */
-    --foreground: 212 50% 25%;
-    --card: 213 47% 98%;
-    --card-foreground: 212 50% 25%;
-    --popover: 213 47% 98%;
-    --popover-foreground: 212 50% 25%;
-    --primary: 212 71% 55%; /* #388FE0 */
-    --primary-foreground: 210 40% 98%;
-    --secondary: 213 40% 90%;
+    /* ── Birthday colour palette with Deepgram-style polish ─── */
+    --background:  213 47% 96%;      /* soft sky-white */
+    --foreground:  220 30% 12%;      /* near-black */
+    --card:        0 0% 100%;
+    --card-foreground: 220 30% 12%;
+    --popover:     0 0% 100%;
+    --popover-foreground: 220 30% 12%;
+    --primary:     212 71% 55%;      /* #388FE0 – sapphire blue */
+    --primary-foreground: 0 0% 100%;
+    --secondary:   213 40% 90%;
     --secondary-foreground: 212 71% 55%;
-    --muted: 213 40% 90%;
-    --muted-foreground: 212 30% 55%;
-    --accent: 176 68% 37%; /* #1FA199 */
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 84.2% 60.2%;
+    --muted:       213 30% 92%;
+    --muted-foreground: 212 25% 48%;
+    --accent:      176 68% 37%;      /* #1FA199 – teal */
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 213 30% 88%;
-    --input: 213 30% 88%;
-    --ring: 212 71% 55%;
-    --radius: 0.8rem;
-  }
-
-  .dark {
-    /* Keeping dark mode for completeness, but the app is light-themed */
-    --background: 222 47% 11%;
-    --foreground: 210 40% 98%;
-    --card: 222 47% 11%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222 47% 11%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 212 71% 55%;
-    --primary-foreground: 222.2 47.4% 1.2%;
-    --secondary: 217 33% 17%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217 33% 17%;
-    --muted-foreground: 215 20% 65%;
-    --accent: 176 68% 37%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 63% 31%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217 33% 17%;
-    --input: 217 33% 17%;
-    --ring: 212 71% 55%;
+    --border:      213 25% 88%;
+    --input:       213 25% 88%;
+    --ring:        212 71% 55%;
+    --radius:      1rem;
   }
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-  html {
-    @apply scroll-smooth;
-  }
+  * { @apply border-border; }
+
+  html { @apply scroll-smooth; }
+
   body {
-    @apply text-foreground;
-    background-color: hsl(var(--background)); /* Fallback */
-    background-image: linear-gradient(
-      -45deg,
-      hsl(var(--background)),
-      hsl(var(--secondary)),
-      hsl(var(--primary) / 0.2),
-      hsl(var(--accent) / 0.2)
-    );
-    background-size: 400% 400%;
-    animation: animated-gradient 15s ease infinite;
+    @apply text-foreground antialiased;
+    background-color: hsl(var(--background));
+    /* Elegant soft gradient — Deepgram-style, birthday-friendly */
+    background-image:
+      radial-gradient(ellipse 80% 60% at 20% -10%, hsl(var(--primary) / 0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 80% 110%, hsl(var(--accent) / 0.10) 0%, transparent 60%),
+      linear-gradient(180deg, hsl(var(--background)) 0%, hsl(213 47% 93%) 100%);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  section {
-    @apply w-full py-20 md:py-32;
+
+  /* Subtle noise texture */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 160px 160px;
+  }
+
+  section { @apply w-full py-20 md:py-32; }
+}
+
+@layer utilities {
+  /* Glassmorphism card */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    box-shadow: 0 4px 32px rgba(56, 143, 224, 0.08);
+  }
+
+  /* Primary gradient text */
+  .text-gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Pill button — filled */
+  .btn-pill {
+    @apply inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-sm transition-all duration-300;
+  }
+
+  /* Keyframe for animated gradient (kept for compat) */
+  @keyframes animated-gradient {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  @keyframes float {
+    0%   { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+    10%  { opacity: 1; }
+    90%  { opacity: 1; }
+    100% { transform: translateY(-10vh) rotate(720deg); opacity: 0; }
+  }
+  @keyframes fall {
+    0%   { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+  }
+  @keyframes fade-in-up {
+    0%   { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes ping-slow {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50%       { transform: scale(1.4); opacity: 0.5; }
+  }
+  @keyframes pulse-dot {
+    0%, 100% { transform: scale(1); }
+    50%       { transform: scale(1.5); }
   }
 }

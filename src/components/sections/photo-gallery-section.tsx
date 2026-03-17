@@ -8,7 +8,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import type { ImagePlaceholder } from "@/lib/placeholder-images";
 import { useIsMobile } from "@/hooks/use-mobile";
 import {
@@ -17,8 +17,11 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  type CarouselApi,
 } from "@/components/ui/carousel";
 import { Skeleton } from "@/components/ui/skeleton";
+import Autoplay from "embla-carousel-autoplay";
+import { useRef } from "react";
 
 // A reusable card for displaying images
 const ImageCard = ({ image }: { image: ImagePlaceholder }) => (
@@ -41,11 +44,31 @@ const ImageCard = ({ image }: { image: ImagePlaceholder }) => (
 const PhotoGallerySection = () => {
   const [selectedImage, setSelectedImage] = useState<ImagePlaceholder | null>(null);
   const [hasMounted, setHasMounted] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [carouselApi, setCarouselApi] = useState<CarouselApi>();
   const isMobile = useIsMobile();
+
+  // Autoplay plugin – 3s delay, pauses on interaction
+  const autoplayPlugin = useRef(
+    Autoplay({ delay: 2000, stopOnInteraction: false, stopOnMouseEnter: true })
+  );
 
   useEffect(() => {
     setHasMounted(true);
   }, []);
+
+  // Track current slide index for dot indicators
+  const onSelect = useCallback(() => {
+    if (!carouselApi) return;
+    setCurrentIndex(carouselApi.selectedScrollSnap());
+  }, [carouselApi]);
+
+  useEffect(() => {
+    if (!carouselApi) return;
+    onSelect();
+    carouselApi.on("select", onSelect);
+    return () => { carouselApi.off("select", onSelect); };
+  }, [carouselApi, onSelect]);
 
   const renderSkeletons = () => (
     <div className="grid grid-cols-2 md:grid-cols-3 gap-4 lg:gap-8">
@@ -64,25 +87,45 @@ const PhotoGallerySection = () => {
 
       {!hasMounted ? renderSkeletons() : (
         isMobile ? (
-          <Carousel
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-            className="w-full"
-          >
-            <CarouselContent>
-              {PlaceHolderImages.map((image) => (
-                <CarouselItem key={image.id} className="basis-4/5 sm:basis-2/3">
-                  <div className="p-1 cursor-pointer" onClick={() => setSelectedImage(image)}>
-                    <ImageCard image={image} />
-                  </div>
-                </CarouselItem>
+          <div className="flex flex-col items-center gap-4">
+            <Carousel
+              opts={{ align: "center", loop: true }}
+              plugins={[autoplayPlugin.current]}
+              setApi={setCarouselApi}
+              className="w-full"
+            >
+              <CarouselContent>
+                {PlaceHolderImages.map((image) => (
+                  <CarouselItem key={image.id} className="basis-4/5 sm:basis-2/3">
+                    <div className="p-1 cursor-pointer" onClick={() => setSelectedImage(image)}>
+                      <ImageCard image={image} />
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="hidden sm:flex" />
+              <CarouselNext className="hidden sm:flex" />
+            </Carousel>
+
+            {/* Dot indicators */}
+            <div className="flex items-center gap-1.5">
+              {PlaceHolderImages.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => carouselApi?.scrollTo(i)}
+                  aria-label={`Go to slide ${i + 1}`}
+                  className="rounded-full transition-all duration-300"
+                  style={{
+                    width:  i === currentIndex ? "20px" : "8px",
+                    height: "8px",
+                    background: i === currentIndex
+                      ? "hsl(var(--primary))"
+                      : "hsl(var(--muted-foreground) / 0.3)",
+                  }}
+                />
               ))}
-            </CarouselContent>
-            <CarouselPrevious className="hidden sm:flex" />
-            <CarouselNext className="hidden sm:flex" />
-          </Carousel>
+            </div>
+          </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 lg:gap-8">
             {PlaceHolderImages.map((image) => (

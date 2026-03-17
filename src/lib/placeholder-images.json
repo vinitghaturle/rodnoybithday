@@ -2,39 +2,57 @@
   "placeholderImages": [
     {
       "id": "gallery-1",
-      "description": "Our first chaos together",
-      "imageUrl": "https://picsum.photos/seed/101/600/800",
+      "description": "Saree + You hits different",
+      "imageUrl": "/2.jpeg",
       "imageHint": "couple selfie"
     },
     {
       "id": "gallery-2",
-      "description": "Proof we look good together",
-      "imageUrl": "https://picsum.photos/seed/102/800/600",
+      "description": "Jaw line so sharp it cut my vein",
+      "imageUrl": "/3.jpeg",
       "imageHint": "couple portrait"
     },
     {
       "id": "gallery-3",
-      "description": "The day you stole my heart",
-      "imageUrl": "https://picsum.photos/seed/103/600/600",
+      "description": "Cute couple",
+      "imageUrl": "/4.jpeg",
       "imageHint": "romantic moment"
     },
     {
-      "id": "gallery-4",
-      "description": "Adventures with you",
-      "imageUrl": "https://picsum.photos/seed/104/600/900",
-      "imageHint": "couple travel"
-    },
-    {
       "id": "gallery-5",
-      "description": "Silly moments",
-      "imageUrl": "https://picsum.photos/seed/105/700/700",
+      "description": "This golu face i am fan off ",
+      "imageUrl": "/6.jpeg",
       "imageHint": "couple laughing"
     },
     {
       "id": "gallery-6",
       "description": "My favorite view",
-      "imageUrl": "https://picsum.photos/seed/106/800/500",
+      "imageUrl": "/7.jpeg",
       "imageHint": "couple nature"
+    },
+    {
+      "id": "gallery-7",
+      "description": "Yellow suits you like i do",
+      "imageUrl": "/8.jpeg",
+      "imageHint": "couple moment"
+    },
+    {
+      "id": "gallery-8",
+      "description": "Snap timeeeeeeeeee",
+      "imageUrl": "/9.jpeg",
+      "imageHint": "special memory"
+    },
+    {
+      "id": "gallery-9",
+      "description": "The best days",
+      "imageUrl": "/10.jpeg",
+      "imageHint": "happy together"
+    },
+    {
+      "id": "gallery-10",
+      "description": "Forever my favorite",
+      "imageUrl": "/11.jpeg",
+      "imageHint": "couple favorite"
     }
   ]
 }

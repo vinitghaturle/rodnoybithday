@@ -1,14 +1,14 @@
-# **App Name**: Rodnoy's Radiant 19
+# **App Name**: Renuka's Radiant 19
 
 ## Core Features:
 
-- Hero Welcome: Personalized greeting for Rodnoy, including dynamic text ('Happy 19th Birthday Rodnoy 💙' and a funny subtitle), a dreamy animated background, and an 'Open Surprise' call-to-action button.
+- Hero Welcome: Personalized greeting for Renuka, including dynamic text ('Happy 19th Birthday Renuka 💙' and a funny subtitle), a dreamy animated background, and an 'Open Surprise' call-to-action button.
 - Emotional Message Reveal: Line-by-line animated display of a heartfelt, customized love message, enhancing the emotional impact.
 - Curated Photo Memories Gallery: A responsive masonry or grid gallery featuring shared photos, with hover effects for captions and a click-to-open lightbox slideshow for detailed viewing.
 - Ambient Music Player: Seamless integration of autoplaying background music, identified as 'Our Song', with discreet controls for a personalized auditory experience.
 - Interactive Relationship Journey Map: A dynamic map (utilizing Mapbox or Leaflet) displaying significant locations from your relationship, with clickable markers revealing pop-up memory captions.
 - Playful Birthday Wishlist: A section featuring visually engaging cards that present humorous and sweet intangible gift ideas, enhanced with cute icons and hover animations.
-- Grand Interactive Surprise: A captivating multi-stage animation sequence for the main surprise, featuring screen dimming, a confetti burst, floating hearts or fireworks, and a special custom message reveal ('Rodnoy… I love you 💙').
+- Grand Interactive Surprise: A captivating multi-stage animation sequence for the main surprise, featuring screen dimming, a confetti burst, floating hearts or fireworks, and a special custom message reveal ('Renuka… I love you 💙').
 
 ## Style Guidelines:
 

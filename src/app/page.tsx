@@ -5,12 +5,13 @@ import HeroSection from "@/components/sections/hero-section";
 import LoveMessageSection from "@/components/sections/love-message-section";
 import PhotoGallerySection from "@/components/sections/photo-gallery-section";
 import MusicPlayer, { MusicPlayerHandle } from "@/components/music-player";
-import JourneyMapSection from "@/components/sections/journey-map-section";
 import WishlistSection from "@/components/sections/wishlist-section";
 import FinalSurpriseSection from "@/components/sections/final-surprise-section";
 import SurpriseModal from "@/components/surprise-modal";
 import Footer from "@/components/footer";
 import Loader from "@/components/loader";
+import CatchHeartsSection from "@/components/sections/catch-hearts-section";
+import AlternateUniverseSection from "@/components/sections/alternate-universe-section";
 import { cn } from "@/lib/utils";
 
 export default function Home() {
@@ -21,15 +22,14 @@ export default function Home() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 2500); // Simulate loading for 2.5 seconds
-
+    }, 2500);
     return () => clearTimeout(timer);
   }, []);
 
   const handleStart = () => {
     musicPlayerRef.current?.playMusic();
   };
-  
+
   return (
     <>
       {isLoading && <Loader />}
@@ -40,11 +40,11 @@ export default function Home() {
         <HeroSection onStart={handleStart} />
         <LoveMessageSection />
         <PhotoGallerySection />
-        <JourneyMapSection />
+        <CatchHeartsSection />
         <WishlistSection />
+        <AlternateUniverseSection />
         <FinalSurpriseSection onOpenSurprise={() => setIsSurpriseOpen(true)} />
         <Footer />
-        
         <MusicPlayer ref={musicPlayerRef} />
         <SurpriseModal isOpen={isSurpriseOpen} onClose={() => setIsSurpriseOpen(false)} />
       </main>

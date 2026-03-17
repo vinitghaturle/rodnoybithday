@@ -35,25 +35,25 @@ const SurpriseModal = ({ isOpen, onClose }: SurpriseModalProps) => {
         {step >= 3 && <FloatingHearts />}
 
         <div className="z-10 text-primary-foreground space-y-8">
-            <p className={cn(
-                "font-headline text-3xl md:text-5xl text-white transition-opacity duration-1000 leading-tight",
-                step >= 2 ? "opacity-100" : "opacity-0"
-            )}>
-                Rodnoy…
-                <br />
-                You’re not just my girlfriend.
-                <br />
-                You’re my favorite notification,
-                <br />
-                my best memory, and my biggest happiness.
-            </p>
+          <p className={cn(
+            "font-headline text-3xl md:text-5xl text-white transition-opacity duration-1000 leading-tight",
+            step >= 2 ? "opacity-100" : "opacity-0"
+          )}>
+            Renuka…
+            <br />
+            You’re not just my Bestfriend.
+            <br />
+            You’re my favorite notification,
+            <br />
+            my best memory, and my biggest happiness.
+          </p>
 
-            <h1 className={cn(
-                "font-headline text-5xl md:text-7xl text-white font-bold transition-opacity duration-1000",
-                step >= 3 ? "opacity-100" : "opacity-0"
-            )}>
-                I love you 💙
-            </h1>
+          <h1 className={cn(
+            "font-headline text-5xl md:text-7xl text-white font-bold transition-opacity duration-1000",
+            step >= 3 ? "opacity-100" : "opacity-0"
+          )}>
+            Always love you ,my future doctor 💙
+          </h1>
         </div>
       </DialogContent>
     </Dialog>
